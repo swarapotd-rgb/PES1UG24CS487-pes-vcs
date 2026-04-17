@@ -194,7 +194,7 @@ int head_update(const ObjectID *new_commit) {
 int commit_create(const char *message, ObjectID *commit_id_out) {
     if (!message || !commit_id_out) return -1;
 
-    Index index;
+   /*Index index;
     memset(&index, 0, sizeof(Index));
 
     if (index_load(&index) != 0) return -1;
@@ -202,11 +202,11 @@ int commit_create(const char *message, ObjectID *commit_id_out) {
     if (index.count == 0) {
         fprintf(stderr, "nothing to commit\n");
         return -1;
-    }
+    }*/
 
     // Create tree
     ObjectID tree_id;
-    if (tree_from_index(&index, &tree_id) != 0) return -1;
+    if (tree_from_index(&tree_id) != 0) return -1;
 
     // Prepare commit
     Commit commit;
