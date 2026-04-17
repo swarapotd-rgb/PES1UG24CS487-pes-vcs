@@ -42,6 +42,7 @@ void cmd_add(int argc, char *argv[]) {
     }
 
     Index index;
+memset(&index, 0, sizeof(Index));
     if (index_load(&index) != 0) {
         fprintf(stderr, "error: failed to load index\n");
         return;
@@ -57,6 +58,7 @@ void cmd_add(int argc, char *argv[]) {
 // Usage: pes status
 void cmd_status(void) {
     Index index;
+    memset(&index, 0, sizeof(Index));
     if (index_load(&index) != 0) {
         fprintf(stderr, "error: failed to load index\n");
         return;
